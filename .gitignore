@@ -9,3 +9,5 @@ output/
 .pytest_cache/
 setup.sh
 *.sh
+.coverage
+coverage.xml
