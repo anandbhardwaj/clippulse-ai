@@ -61,6 +61,14 @@ Audio is transcribed with Groq `whisper-large-v3` (requires `GROQ_API_KEY`) into
 25 MB are rejected before any request is made (use a shorter clip); rate limits are retried
 with exponential backoff (3 retries by default) before failing with an actionable error.
 
+### Finding the moment (LLM)
+
+The transcript and your query go to the LLM chosen by `LLM_PROVIDER` (`anthropic` by default,
+or `gemini`); set `LLM_MODEL` to override the default model. The reply is validated as
+`{"start": float, "end": float, "summary": str}` with `0 <= start < end <= video duration`.
+A malformed reply gets exactly one automatic repair attempt. The model always returns its
+closest match, so treat results for topics that are not in the video with caution.
+
 ---
 
 ## 🟪 Verification & Tests

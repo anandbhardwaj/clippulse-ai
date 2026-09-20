@@ -26,6 +26,12 @@ class Settings(BaseModel):
     transcribe_max_retries: int = 3
     transcribe_max_upload_mb: int = 25
     transcribe_timeout_s: float = 60.0
+    llm_provider: str = Field(
+        default_factory=lambda: os.getenv("LLM_PROVIDER", "anthropic")
+    )
+    llm_model: str = Field(default_factory=lambda: os.getenv("LLM_MODEL", ""))
+    llm_max_retries: int = 3
+    llm_timeout_s: float = 30.0
 
 
 settings = Settings()
