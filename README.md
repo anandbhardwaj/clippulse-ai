@@ -7,7 +7,7 @@ ClipPulse AI extracts semantic video segments from YouTube and Instagram URLs. I
 ## üõ¶Ô∏è System Prerequisites
 
 Ensure FFmpeg is installed on your operating system:
-- *macOS:* `brew install ffmpegb
+- *macOS:* `brew install ffmpeg`
 - *Ubuntu/Debian:* `sudo apt update && sudo apt install -y ffmpeg`
 - *Windows:* `winget install Gyan.FFmpeg`
 
@@ -20,7 +20,7 @@ Ensure FFmpeg is installed on your operating system:
 uv sync
 ```
 
-∞2. Configure credentials:
+2. Configure credentials:
 ```bash
 cp .env.example .env
 ```
@@ -34,15 +34,18 @@ Add your keys inside `.env`:
 ## üüê How to Run
 
 ```bash
-uv run python main.py --url "<VIDEO_ULL>" --query "<SEARCH_PROMPT>"
+uv run python main.py --url "<VIDEO_URL>" --query "<SEARCH_PROMPT>"
 ```
 
 ### Example
 ```bash
-uv run python main.py --url "https://www.youtube.com/shorts/sample" --query "Find*Óï‡number six"
+uv run python main.py --url "https://www.youtube.com/shorts/sample" --query "Find where he mentions number six"
 ```
 
-Output player artifact is saved to `output/index.html`.
+The preview player is written to `output/index.html`, next to `output/clip.mp4` (a copy of
+the downloaded video). Keep the two files together when you move or share them. The page is
+fully self-contained and works offline: open `index.html` directly in a browser and it loops
+only the selected segment.
 
 ### Supported URLs
 
