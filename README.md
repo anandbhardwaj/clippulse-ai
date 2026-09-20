@@ -54,6 +54,13 @@ Only these forms are accepted (anything else fails fast with an actionable error
 Private or login-gated media needs a logged-in session: export cookies in Netscape format and
 set `YTDLP_COOKIES_FILE` in `.env`. FFmpeg and `ffprobe` must be on your `PATH`.
 
+### Transcription
+
+Audio is transcribed with Groq `whisper-large-v3` (requires `GROQ_API_KEY`) into chunks of
+`{"start": float, "end": float, "text": str}` with two-decimal timestamps. Audio files above
+25 MB are rejected before any request is made (use a shorter clip); rate limits are retried
+with exponential backoff (3 retries by default) before failing with an actionable error.
+
 ---
 
 ## 🟪 Verification & Tests

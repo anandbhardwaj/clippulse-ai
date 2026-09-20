@@ -22,6 +22,10 @@ class Settings(BaseModel):
     )
     ingest_max_retries: int = 2
     ingest_timeout_s: float = 30.0
+    whisper_model: str = "whisper-large-v3"
+    transcribe_max_retries: int = 3
+    transcribe_max_upload_mb: int = 25
+    transcribe_timeout_s: float = 60.0
 
 
 settings = Settings()
