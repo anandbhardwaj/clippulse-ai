@@ -7,3 +7,5 @@ output/
 *.mp4
 *.mp3
 .pytest_cache/
+setup.sh
+*.sh
