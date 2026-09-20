@@ -15,6 +15,13 @@ class Settings(BaseModel):
     gemini_api_key: str = Field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
     output_dir: Path = Path("output")
     temp_dir: Path = Path("temp")
+    ytdlp_cookies_file: Path | None = Field(
+        default_factory=lambda: (
+            Path(cookies) if (cookies := os.getenv("YTDLP_COOKIES_FILE")) else None
+        )
+    )
+    ingest_max_retries: int = 2
+    ingest_timeout_s: float = 30.0
 
 
 settings = Settings()

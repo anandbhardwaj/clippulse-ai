@@ -44,6 +44,16 @@ uv run python main.py --url "https://www.youtube.com/shorts/sample" --query "Fin
 
 Output player artifact is saved to `output/index.html`.
 
+### Supported URLs
+
+Only these forms are accepted (anything else fails fast with an actionable error):
+
+- YouTube Shorts: `https://www.youtube.com/shorts/<id>`
+- Instagram Reels: `https://www.instagram.com/reel/<id>/` (also `/reels/<id>/` and `/<user>/reel/<id>/`)
+
+Private or login-gated media needs a logged-in session: export cookies in Netscape format and
+set `YTDLP_COOKIES_FILE` in `.env`. FFmpeg and `ffprobe` must be on your `PATH`.
+
 ---
 
 ## 🟪 Verification & Tests
